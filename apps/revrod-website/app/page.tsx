@@ -11,7 +11,7 @@ export default async function Index() {
           <div id="welcome">
             <h1
               style={{
-                color: 'green',
+                color: 'greenyellow',
               }}
             >
               <span> Hello there, </span>
