@@ -1,0 +1,55 @@
+{
+  "name": "revrod-website",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/revrod-website",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/revrod-website"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/revrod-website"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "revrod-website:build",
+        "dev": true,
+        "port": 4000
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "revrod-website:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "revrod-website:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "revrod-website:build:production"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/revrod-website/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
