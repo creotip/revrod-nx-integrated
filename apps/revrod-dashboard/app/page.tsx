@@ -9,7 +9,7 @@ export default async function Index() {
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
-            <h1 style={{ color: 'tomato' }}>
+            <h1 style={{ color: 'orange' }}>
               <span> Hello there, </span>
               Welcome revrod-dashboard 👋
             </h1>
